@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="34.5" viewBox="0 0 31 34.5">
+  <g id="Group_22230" data-name="Group 22230" transform="translate(0 2)">
+    <g id="Path_5159" data-name="Path 5159" transform="translate(0 1.5)" fill="none">
+      <path d="M15.5,0A15.5,15.5,0,1,1,0,15.5,15.5,15.5,0,0,1,15.5,0Z" stroke="none"/>
+      <path d="M 15.5 5 C 9.71027946472168 5 5 9.71027946472168 5 15.5 C 5 21.28971862792969 9.71027946472168 26 15.5 26 C 21.28971862792969 26 26 21.28971862792969 26 15.5 C 26 9.71027946472168 21.28971862792969 5 15.5 5 M 15.5 0 C 24.06040954589844 0 31 6.939590454101562 31 15.5 C 31 24.06040954589844 24.06040954589844 31 15.5 31 C 6.939590454101562 31 0 24.06040954589844 0 15.5 C 0 6.939590454101562 6.939590454101562 0 15.5 0 Z" stroke="none" fill="#fff"/>
+    </g>
+    <line id="Line_208" data-name="Line 208" y2="17" transform="translate(15.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+  </g>
+</svg>

@@ -1,0 +1,262 @@
+@font-face {
+  font-family: Bold;
+  src: url("../Fonts/Almarai-Bold.ttf");
+}
+@font-face {
+  font-family: Regular;
+  src: url("../Fonts/Almarai-Regular.ttf");
+}
+@font-face {
+  font-family: Light;
+  src: url("../Fonts/Almarai-Light.ttf");
+}
+@font-face {
+  font-family: SFBold;
+  src: url("../Fonts/SFPRODISPLAYBOLD.OTF");
+}
+@font-face {
+  font-family: SFRegular;
+  src: url("../Fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Regular;
+  text-align: right;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #7c7c7c;
+}
+
+thead {
+  border-color: #fff !important;
+  border-style: none;
+  border-width: 0;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #585858;
+}
+
+.form-select{
+  background-color:#F2F2F2 ;
+}
+
+body header {
+  background-color: #fff;
+}
+
+body header nav.navbar {
+  background-color: #28494a !important;
+  border-bottom-color: #32a05f;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+}
+
+body header nav.navbar img {
+  width: 8rem;
+}
+
+body header nav.navbar .nav-icons span {
+  color: #fff;
+  font-size: 1.7rem;
+}
+
+header nav.navbar h3 {
+  color: #fff;
+  margin: 0;
+  font-family: Bold;
+  font-size: larger;
+}
+
+main .step {
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+  background-color: #dbdbdb;
+  color: #fff;
+  text-align: center;
+  font-family: Bold;
+  font-size: 25px;
+  margin-left: 0.7rem;
+}
+
+main .steper h4 {
+  color: #dbdbdb;
+  font-family: Bold;
+  font-size: 18px;
+}
+main .steper h4.step-active {
+  color: #32a05f;
+}
+
+main .step.step-active {
+  background-color: #32a05f;
+}
+
+main .card {
+  border: solid 1px #dbdbdb;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+main .card .head-card {
+  background-color: #f2f2f2;
+  color: #a5b29c;
+  padding: 15px 5px;
+}
+
+main .card .head-card h5 {
+  color: #a5b29c;
+  font-family: Bold;
+  font-size: 16px;
+}
+
+main .card .body-card {
+  margin: 1rem 2rem;
+}
+
+main .card .body-card .label {
+  color: #193439;
+  font-family: Bold;
+  font-size: 12px;
+  margin-left: 0.8rem;
+  width: 5rem;
+}
+
+main .card .body-card .item {
+  width: 100%;
+  margin-top: 1.5rem;
+  align-items: center !important;
+}
+/* 
+main .card .body-card .item.input-group {
+  padding-left: 2rem;
+} */
+
+main .card .body-card .form-control {
+  /* flex: 0.8; */
+  /* align-self:flex-end; */
+}
+
+main .card .body-card .item input {
+  border-radius: 5px !important;
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #f2f2f2;
+  border-top-color: #32a05f;
+  border-top-width: 4px;
+  border-top-style: solid;
+}
+
+footer #logo_footer {
+  width: 8rem;
+}
+
+footer .footer-link p {
+  padding-right: 7px;
+  font-size: 11px;
+  color: #28494a;
+  border-right-color: #fff;
+  border-right-width: 3px;
+  border-right-style: solid;
+}
+
+footer .social-icons span a {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #b7b7b7;
+  display: flex;
+  justify-content: center;
+}
+
+footer .social-icons span img {
+  width: 60%;
+}
+
+main .contain-report {
+  background-color: #f2f2f2;
+  border: 1px solid #bccbb2;
+  border-radius: 8px;
+  padding: 25px 40px;
+}
+
+main .contain-report .title-report {
+  font-size: 1.2rem;
+  font-family: Bold;
+  color: #a5b29c;
+  margin-bottom: 1rem;
+}
+
+main .form-check label {
+  font-size: 1rem;
+  color: #a5b29c;
+  /* margin-left: 1rem; */
+}
+
+.form-check-input:checked {
+  background-color: #32a05f;
+  border-color: #32a05f;
+}
+
+.heading-tabel {
+  text-align: center;
+  font-size: 0.7em;
+}
+
+.heading-tabel p {
+  text-align: center;
+  font-family: Bold;
+}
+.heading-tabel .col-1 p {
+  font-family: Regular;
+}
+
+main .button-perview {
+  background-color: #f2f2f2;
+  color: #dbdbdb;
+  font-family: Bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+main .button-perview.active-perview {
+  background-color: #bccbb2;
+  color: #fff;
+}
+
+main .form-control.login-input {
+  border: 0px solid #ced4da;
+  border-radius: 0px;
+  border-bottom: 1.5px solid #000;
+}
+
+header .form-control.search {
+  background-color: #fff0;
+  border: 0px solid #ced4da;
+}
+
+@media only screen and (min-width: 768px) {
+  main .card .body-card .item {
+    width: 50%;
+  }
+
+  main .card .body-card .label {
+    margin-right: 1.5rem;
+  }
+}

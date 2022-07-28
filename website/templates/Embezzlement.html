@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static/Images/icon.png" />
+    <title>Smart Detective</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./static/Style/style.css" />
+  </head>
+
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="navbar-brand d-flex align-items-center">
+            <a href="#">
+              <img
+                src="./static/Images/logo.svg"
+                alt="logo"
+                class="d-inline-block align-text-top img-fluid"
+              />
+            </a>
+            <div
+              class="mx-2"
+              style="height: 60px; width: 2px; background-color: #fff"
+            ></div>
+            <h3>إدخال محضر جديد</h3>
+          </div>
+          <div class="d-flex nav-icons me-auto">
+            <a href="#" class="mx-2">
+              <span class="material-icons"> person </span>
+            </a>
+            <a href="./static/Login.html">
+              <span class="material-icons"> settings_power </span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container pt-3">
+      <div class="d-flex align-items-center steper my-4">
+        <div style="margin-left: 2.5rem" class="d-flex align-items-center">
+          <span class="step step-active">1</span>
+          <h4 class="step-active">بيانات المحضر</h4>
+        </div>
+        <div class="d-flex align-items-center">
+          <span class="step">2</span>
+          <h4 class="">مضمون البلاغ</h4>
+        </div>
+      </div>
+      <form id="my_form" method="post">
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">البيانات الأساسية</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">رقم المحضر</p>
+                <p id="Proceeding_no" style="color: #a7a7a7; font-size: 18px">
+                  #####
+                </p>
+              </div>
+              <div
+                class="item d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">تاريخ البلاغ</p>
+                <p style="color: #a7a7a7; font-size: 18px" id="Report_date">
+                  #####
+                </p>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">عنوان البلاغ</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Report_title"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هوية المبلغ</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Reporter_name"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات الحادثة</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">تاريخ الحادثة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Incident_date"
+                    type="date"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">وقت الحادثة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input name="time" type="time" class="form-control ml-2" />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اليوم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Day"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">الأحد</option>
+                    <option value="2">الاثنين</option>
+                    <option value="3">الثلاثاء</option>
+                    <option value="4">الأربعاء</option>
+                    <option value="5">الخميس</option>
+                    <option value="6">الجمعة</option>
+                    <option value="7">السبت</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">طريقة التواصل</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Contact Medium"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">بريد الكتروني</option>
+                    <option value="2">مكالمة</option>
+                    <option value="3">تواصل اجتماعي</option>
+                    <option value="4">رسائل نصية</option>
+                    <option value="5">غير ذلك</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات المتهم</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اسم الجهة المتهمة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Name_of_the_accused"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">معروف</option>
+                    <option value="2">مجهول</option>
+                    <option value="3">مشكوك فيه</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اسم الشخص المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="accused_name"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">موقع المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="accused_location"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">الرياض</option>
+                    <option value="2">الطائف</option>
+                    <option value="3">المدينة المنورة</option>
+                    <option value="4">تبوك</option>
+                    <option value="5">الدمام</option>
+                    <option value="6">الدرعية </option>
+                    <option value="7">  الخرج</option>
+                    <option value="8">الدوادمي</option>
+                    <option value="9">المجمعة</option>
+                    <option value="10">القويعية</option>
+                    <option value="11">وادي الدواسر</option>
+                    <option value="12">الأفلاج</option>
+                    <option value="13">الزلفى</option>
+                    <option value="14">  شقراء</option>
+                    <option value="15">حوطة بني تميم</option>
+                    <option value="16">عفيف</option>
+                    <option value="17">السليل</option>
+                    <option value="18">ضرما</option>
+                    <option value="19">المزاحمية</option>
+                    <option value="20">رماح</option>
+                    <option value="21">ثادق</option>
+                    <option value="22">حريملاء</option>
+                    <option value="23">الحريق</option>
+                    <option value="24">الغاط</option>
+                    <option value="25">مرات</option>
+                    <option value="26">الدلم</option>
+                    <option value="27">الرين</option>
+                    <option value="28"> مكة المكرمة</option>
+                    <option value="29">جدة</option>
+                    <option value="30">الطائف</option>
+                    <option value="31">القنفدة</option>
+                    <option value="32">الجموم</option>
+                    <option value="33">رابغ</option>
+                    <option value="34">الليث</option>
+                    <option value="35">خليص</option>
+                    <option value="36">أضم</option>
+                    <option value="37">تربة</option>
+                    <option value="38">الخرمة</option>
+                    <option value="39">رنية</option>
+                    <option value="40">الكامل</option>
+                    <option value="41">العرضيات</option>
+                    <option value="42">الموية</option>
+                    <option value="43">ميسان</option>
+                    <option value="44">بحرة</option>
+                    <option value="45">ينبع</option>
+                    <option value="46">بدر</option>
+                    <option value="47">العلا</option>
+                    <option value="48">الحناكية</option>
+                    <option value="49">مهد الذهب</option>
+                    <option value="50">خيبر</option>
+                    <option value="51">السويرقية</option>
+                    <option value="52">العيص</option>
+                    <option value="53">وادي الفرع</option>
+                    <option value="54"> أملج </option>
+                    <option value="55">تيماء</option>
+                    <option value="56">حقل</option>
+                    <option value="57">ضباء والوجه</option>
+                    <option value="58">الهفوف</option>
+                    <option value="59">المبرز</option>
+                    <option value="60">العيون</option>
+                    <option value="61">الطرف</option>
+                    <option value="62">العمران</option>
+                    <option value="63">الجفر</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+       
+                <p class="label">الموقع الإلكتروني</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input name="" type="text" class="form-control ml-2" />
+                </div>
+              </div> -->
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">رقم جوال المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Phone_number"
+                    type="number"
+                    placeholder="5XXXXXXXX"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <!-- <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">رقم هاتف المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input type="text" class="form-control ml-2" />
+                </div>
+              </div> -->
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">البريد الإلكتروني</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="yyronrfd@gmail.com"
+                    type="email"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات الحوالة البنكية</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل تم تحويل مبلغ</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Transferred_money"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">القيمة المحولة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Transferred_value"
+                    type="number"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">البنك المحول منه</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Source_bank"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">البنك المحول إليه</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Destenation_bank"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <!-- missing -->
+                <p class="label">الحساب البنكي</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="account_number"
+                    type="number"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">تاريخ الحوالة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="transfer_date"
+                    type="date"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">أخرى</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <!-- missing -->
+                <p class="label">هل قمت بإعطاء المتهم بيانات شخصية</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Personal_info"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">البيانات المعطاة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Data_description"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">OTP</option>
+                    <option value="2">Visa Card Details</option>
+                    <option value="3">ID number</option>
+                    <option value="4">غير ذلك</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between my-4">
+          <a href="#"><p>إلغاء</p></a>
+          <div class="d-flex align-items-center">
+            <a onclick="Cleanup()" class="mx-3"><p>تفريع الحقول</p></a>
+            <button
+              id="submit_embezzlement"
+              type="submit"
+              class="btn btn-success"
+            >
+              التالي
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer style="margin-top: 2rem">
+      <div class="container-fluid py-3">
+        <div
+          class="row align-items-center justify-content-md-between justify-content-center"
+        >
+          <div
+            class="d-flex align-items-center col-12 col-md-4 justify-content-center order-0"
+          >
+            <img
+              id="logo_footer"
+              src="./static/Images/logo-footer.svg"
+              alt="logo"
+              srcset=""
+            />
+            <div class="mx-3">
+              <a class="footer-link" href="#">
+                <p>عن المحقق الذكي</p>
+              </a>
+              <a class="footer-link" href="#">
+                <p class="my-2">سياسة الخصوصية</p>
+              </a>
+              <a class="footer-link" href="#">
+                <p>الشروط والأحكام</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 my-4 my-md-0 order-2 order-md-1">
+            <div class="social-icons d-flex justify-content-center">
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/youtube.svg" alt="youtube" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/twitter.svg" alt="twitter" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/instagram.svg" alt="instagram" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/facebook.svg" alt="facebook" srcset="" />
+                </a>
+              </span>
+            </div>
+            <p
+              class="text-center"
+              style="font-size: 13px; color: #28494a; margin-top: 10px"
+            >
+              جميع الحقوق محفوظة © 2022
+            </p>
+          </div>
+          <div
+            class="align-items-center col-12 col-md-4 d-flex justify-content-center logos my-3 my-md-0 order-1 order-md-2"
+          >
+            <img
+              style="width: 7rem"
+              src="./static/Images/roaia-logo.svg"
+              alt="roaia logo"
+            />
+            <img
+              class="mx-2"
+              style="width: 6rem"
+              src="./static/Images/internal-logo.svg"
+              alt="roaia logo"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/Js/action.js"></script>
+    <script>
+      document
+        .getElementById("submit_embezzlement")
+        .addEventListener("click", (e) => submitHandle(e, "ReportContent"));
+      function Cleanup() {
+        document.getElementById("my_form").reset();
+      }
+    </script>
+  </body>
+</html>

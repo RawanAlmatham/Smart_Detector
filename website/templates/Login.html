@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static/Images/icon.png" />
+    <title>Smart Detective</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./static/Style/style.css" />
+  </head>
+
+  <body
+    style="background-color: #f2f2f2; height: 100vh"
+    class="align-items-center d-flex flex-column justify-content-center"
+    dir="rtl"
+  >
+    <main
+      style="background-color: #fff; border-radius: 25px; padding: 1.5rem 5rem"
+      class="align-items-center d-flex flex-column justify-content-center"
+    >
+      <img
+        src="./static/Images/logo-footer.svg"
+        style="width: 10rem; margin-bottom: 1rem"
+        alt="logo"
+        srcset=""
+      />
+      <form  action="{{ url_for('views.Dashboard')}}"  >
+        <div class="form-group">
+          <label for="usr" style="font-size: 0.7rem; margin-right: 1.5rem"
+            >اسم المستخدم</label
+          >
+          <input type="text" class="form-control login-input" id="usr" />
+        </div>
+        <div class="form-group" style="margin-top: 1rem">
+          <label for="password" style="font-size: 0.7rem; margin-right: 1.5rem"
+            >كلمة المرور</label
+          >
+          <input
+            type="password"
+            class="form-control login-input"
+            id="password"
+          />
+        </div>
+        <button
+          id="submit_login"
+          type="submit"
+          class="btn btn-success"
+          style="font-family: Bold; width: 100%; margin-top: 2rem"
+          
+        >
+          دخول 
+        </button>
+
+        <a href = "{{ url_for('views.Dashboard') }}" >  دخول </a>
+        <p
+          class="my-3"
+          style="color: #7c7c7c; font-size: 12px; text-align: center"
+        >
+          ليس لديك حساب ؟
+        </p>
+        <a href="#"
+          ><p style="color: #32a05f; font-size: 9px; text-align: center">
+            انقر هنا للتسجيل
+          </p></a
+        >
+      </form>
+    </main>
+    <img
+      src="./static/Images/internal-logo.svg"
+      alt="logo"
+      srcset=""
+      style="width: 7rem"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/Js/action.js"></script>
+ 
+  </body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static/Images/icon.png" />
+    <title>Smart Detective</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./static/Style/style.css" />
+  </head>
+
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="navbar-brand d-flex align-items-center">
+            <a href="#">
+              <img
+                src="./static/Images/logo.svg"
+                alt="logo"
+                class="d-inline-block align-text-top img-fluid"
+              />
+            </a>
+            <div
+              class="mx-2"
+              style="height: 60px; width: 2px; background-color: #fff"
+            ></div>
+            <h3>إدخال محضر جديد</h3>
+          </div>
+          <div class="d-flex nav-icons me-auto">
+            <a href="#" class="mx-2">
+              <span class="material-icons"> person </span>
+            </a>
+            <a href="./static/Login.html">
+              <span class="material-icons"> settings_power </span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container pt-3">
+      <div class="d-flex align-items-center steper my-4">
+        <div style="margin-left: 2.5rem" class="d-flex align-items-center">
+          <span class="step step-active">1</span>
+          <h4 class="step-active">بيا   نات المحضر</h4>
+        </div>
+        <div class="d-flex align-items-center">
+          <span class="step">2</span>
+          <h4 class="">مضمون البلاغ</h4>
+        </div>
+      </div>
+      <form id="myForm" action="{{ url_for('views.MainResult')}}" method="post" >
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">البيانات الأساسية</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">رقم المحضر</p>
+                <p style="color: #a7a7a7; font-size: 18px" id="Proceeding_no">
+                  #####
+                </p>
+              </div>
+              <div
+                class="item d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">تاريخ البلاغ</p>
+                <p style="color: #a7a7a7; font-size: 18px" id="Report_date">
+                  #####
+                </p>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">عنوان البلاغ</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    type="text"
+                    class="form-control ml-2"
+                    name="Report_title"
+                  />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اسم المبلغ</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    type="text"
+                    class="form-control ml-2"
+                    name="Reporter_name"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات الحادثة</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">تاريخ الحادثة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="Incident_date"
+                    type="date"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">وقت الحادثة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input name="time" type="time" class="form-control ml-2" />
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">المدينة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    name="City"
+                  >
+                    <option selected></option>
+                    <option value="1">الرياض</option>
+                    <option value="2">الطائف</option>
+                    <option value="3">المدينة المنورة</option>
+                    <option value="4">تبوك</option>
+                    <option value="5">الدمام</option>
+                    <option value="6">الدرعية </option>
+                    <option value="7">  الخرج</option>
+                    <option value="8">الدوادمي</option>
+                    <option value="9">المجمعة</option>
+                    <option value="10">القويعية</option>
+                    <option value="11">وادي الدواسر</option>
+                    <option value="12">الأفلاج</option>
+                    <option value="13">الزلفى</option>
+                    <option value="14">  شقراء</option>
+                    <option value="15">حوطة بني تميم</option>
+                    <option value="16">عفيف</option>
+                    <option value="17">السليل</option>
+                    <option value="18">ضرما</option>
+                    <option value="19">المزاحمية</option>
+                    <option value="20">رماح</option>
+                    <option value="21">ثادق</option>
+                    <option value="22">حريملاء</option>
+                    <option value="23">الحريق</option>
+                    <option value="24">الغاط</option>
+                    <option value="25">مرات</option>
+                    <option value="26">الدلم</option>
+                    <option value="27">الرين</option>
+                    <option value="28"> مكة المكرمة</option>
+                    <option value="29">جدة</option>
+                    <option value="30">الطائف</option>
+                    <option value="31">القنفدة</option>
+                    <option value="32">الجموم</option>
+                    <option value="33">رابغ</option>
+                    <option value="34">الليث</option>
+                    <option value="35">خليص</option>
+                    <option value="36">أضم</option>
+                    <option value="37">تربة</option>
+                    <option value="38">الخرمة</option>
+                    <option value="39">رنية</option>
+                    <option value="40">الكامل</option>
+                    <option value="41">العرضيات</option>
+                    <option value="42">الموية</option>
+                    <option value="43">ميسان</option>
+                    <option value="44">بحرة</option>
+                    <option value="45">ينبع</option>
+                    <option value="46">بدر</option>
+                    <option value="47">العلا</option>
+                    <option value="48">الحناكية</option>
+                    <option value="49">مهد الذهب</option>
+                    <option value="50">خيبر</option>
+                    <option value="51">السويرقية</option>
+                    <option value="52">العيص</option>
+                    <option value="53">وادي الفرع</option>
+                    <option value="54"> أملج </option>
+                    <option value="55">تيماء</option>
+                    <option value="56">حقل</option>
+                    <option value="57">ضباء والوجه</option>
+                    <option value="58">الهفوف</option>
+                    <option value="59">المبرز</option>
+                    <option value="60">العيون</option>
+                    <option value="61">الطرف</option>
+                    <option value="62">العمران</option>
+                    <option value="63">الجفر</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اليوم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Day"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">الأحد</option>
+                    <option value="2">الاثنين</option>
+                    <option value="3">الثلاثاء</option>
+                    <option value="4">الأربعاء</option>
+                    <option value="5">الخميس</option>
+                    <option value="6">الجمعة</option>
+                    <option value="7">السبت</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">مكان الحادثة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Place"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">منزل</option>
+                    <option value="2">شقة</option>
+                    <option value="3">استراحة</option>
+                    <option value="4">قصر</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">الحي</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="District"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">الندى</option>
+                    <option value="2">الصحافة</option>
+                    <option value="3">النرجس</option>
+                    <option value="4">العارض</option>
+                    <option value="5">النفل</option>
+                    <option value="6">العقيق</option>
+                    <option value="7">الوادي</option>
+                    <option value="8">الغدير</option>
+                    <option value="9">الياسمين</option>
+                    <option value="10">الفلاح</option>
+                    <option value="11">بنبان</option>
+                    <option value="12">القيروان</option>
+                    <option value="13">حطين</option>
+                    <option value="14">الملقا</option>
+                    <option value="15">الروضة</option>
+                    <option value="16">الرمال</option>
+                    <option value="17">المونسية</option>
+                    <option value="18">قرطبة</option>
+                    <option value="19">الجنادرية</option>
+                    <option value="20">القادسية</option>
+                    <option value="21">اليرموك</option>
+                    <option value="22">غرناطة</option>
+                    <option value="23">أشبيلية</option>
+                    <option value="24">الحمراء</option>
+                    <option value="25">المعيزلية</option>
+                    <option value="26">الخليج</option>
+                    <option value="27">الملك فيصل</option>
+                    <option value="28">القدس</option>
+                    <option value="29">النهضة</option>
+                    <option value="30">الأندلس</option>
+                    <option value="31">العليا</option>
+                    <option value="32">السليمانية</option>
+                    <option value="33">الملك عبد العزيز</option>
+                    <option value="34">الملك عبد الله</option>
+                    <option value="35">الورود</option>
+                    <option value="36">صلاح الدين</option>
+                    <option value="37">الملك فهد</option>
+                    <option value="38">المرسلات</option>
+                    <option value="39">النزهة</option>
+                    <option value="40">المغرزات</option>
+                    <option value="41">المروج</option>
+                    <option value="42">المصيف</option>
+                    <option value="43">التعاون</option>
+                    <option value="44">الإزدهار</option>
+                    <option value="45">المعذر</option>
+                    <option value="46">المحمدية</option>
+                    <option value="47">الرحمانية</option>
+                    <option value="48">الرائد</option>
+                    <option value="49">النخيل</option>
+                    <option value="50">أم الحمام الشرقي</option>
+                    <option value="51">أم الحمام الغربي</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item input-group d-flex align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">الشارع</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="street"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">الدائري (الرياض)</option>
+                    <option value="2">الأمير بدر بن عبد العزيز</option>
+                    <option value="3">الأمير سلطان بن عبد العزيز</option>
+                    <option value="4">الأمير سلمان بن محمد بن سعود</option>
+                    <option value="5">الأمير ماجد بن عبد العزيز</option>
+                    <option value="6">الأمير ناصر بن عبد العزيز</option>
+                    <option value="7">الأمير نايف بن عبد العزيز</option>
+                    <option value="8">الحسن بن علي</option>
+                    <option value="9">العليا</option>
+                    <option value="10">المغيرة بن شعبة</option>
+                    <option value="11">هشام بن عبد الملك</option>
+                    <option value="12">أبي بكر الصديق (الرياض)</option>
+                    <option value="13">الأمير سعود بن محمد بن مقرن</option>
+                    <option value="14">
+                      الأمير محمد بن عبد العزيز (الرياض)
+                    </option>
+                    <option value="15">
+                      الإمام سعود بن عبد العزيز بن محمد
+                    </option>
+                    <option value="16">التخصصي</option>
+                    <option value="17">الشيخ جابر الأحمد الصباح</option>
+                    <option value="18">العليا</option>
+                    <option value="19">الملك خالد</option>
+                    <option value="20">الملك عبد العزيز</option>
+                    <option value="21">الملك عبد الله</option>
+                    <option value="22">الملك فهد</option>
+                    <option value="23">تركي الأول</option>
+                    <option value="24">خالد بن الوليد</option>
+                    <option value="25">خريص</option>
+                    <option value="26">عثمان بن عفان</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات المسروقات</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">المسروقات</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="loot"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">سيارة</option>
+                    <option value="2">ذهب</option>
+                    <option value="3">جهاز منزلي</option>
+                    <option value="4">مبلغ مادي</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">وصف المسروقات</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input name="loot_description" type="text" class="form-control ml-2" />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل يوجد كاميرات في الموقع</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="is_camera"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                    <option value="3">لا أعلم</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">طريقة السرقة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="loot_methodology"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">كسر الباب</option>
+                    <option value="2">وجود مفتاح</option>
+                    <option value="3">تسلق الجدار</option>
+                    <option value="4">غير معروف</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">قيمة المسروقات التقديرية</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="estemated_loot_value"
+                    type="number"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head-card d-flex">
+            <span class="material-icons"> expand_less </span>
+            <h5 class="mx-2">بيانات المتهم</h5>
+          </div>
+          <div class="body-card">
+            <div class="d-flex flex-wrap">
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل مركبة المتهم معروفة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="known_vehicle"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                    <option value="3">لا أعلم</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اسم المركبة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="vehicle_name"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">لوحة المركبة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    type="text"
+                    name="vehicle_number"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">لون المركبة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    type="text"
+                    name="vehicle_color"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">أوصاف إضافية</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="more_des"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل المتهم يحمل سلاح</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="weapon_existens"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                    <option value="3">لا أعلم</option>
+                  </select>
+                </div>
+              </div>
+
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل عدد المتهمين معروف</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Accuseds_number"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">معروف</option>
+                    <option value="2">مجهول</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">عدد المتهمين</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="number_of_accused"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">هل أوصاف /هوية المتهم معروفة</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Accused_description"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">نعم</option>
+                    <option value="2">لا</option>
+                    <option value="3">لا أعلم</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">اسم المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="accused_name"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">لون بشرة المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="skin_colour"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">بيضاء</option>
+                    <option value="2">سمراء</option>
+                    <option value="3">حنطية</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">جنسية المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Nationality"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">سعودي</option>
+                    <option value="2">مصري</option>
+                    <option value="3">باكستاني</option>
+                    <option value="4">صومالي</option>
+                    <option value="5">هندي</option>
+                    <option value="6">بنقالي</option>
+                    <option value="7">غير معروف</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">عمر المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <select
+                    name="Age"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected></option>
+                    <option value="1">15-20</option>
+                    <option value="2">21-26</option>
+                    <option value="3">27-32</option>
+                    <option value="4">33-50</option>
+                    <option value="5">50+</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="item d-flex input-group align-items-center justify-content-center justify-content-md-start"
+              >
+                <p class="label">بنية المتهم</p>
+                <div style="flex: 1" class="d-flex justify-content-end">
+                  <input
+                    name="accused_body"
+                    type="text"
+                    class="form-control ml-2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </main>
+    <main class="container pt-3">
+      <div class="d-flex align-items-center steper my-4">
+        <div style="margin-left: 2.5rem" class="d-flex align-items-center">
+          <span class="step">1</span>
+          <h4 class="">بيانات المحضر</h4>
+        </div>
+        <div class="d-flex align-items-center">
+          <span class="step step-active">2</span>
+          <h4 class="step-active">مضمون البلاغ</h4>
+        </div>
+      </div>
+
+        <div class="contain-report">
+          <p class="title-report">مضمون البلاغ</p>
+          <textarea
+            name="Report_content"
+            class="form-control"
+            id="floatingTextarea2"
+            style="height: 180px"
+          ></textarea>
+          <div
+            class="d-flex justify-content-center justify-content-md-start align-items-center"
+            style="margin-top: 1rem"
+          >
+            <p class="mx-3" style="color: #193439; font-size: 0.9rem">
+              هل تصادق على صحة ما ذُكر
+            </p>
+            <div class="d-flex">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  نعم
+                </label>
+              </div>
+              <div class="form-check mx-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  لا
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between my-4">
+          <a href="#"><p>عودة للسابق</p></a>
+          <div class="d-flex align-items-center">
+            <a href="#" class="mx-3"><p>حفظ كمسودة</p></a>
+            <button id="submit-content" type="submit" class="btn btn-success">
+              الانتقال إلى أدوات المحقق الذكي
+            </button>
+          </div>
+        </div>
+      </form>
+    <footer style="margin-top: 2rem">
+      <div class="container-fluid py-3">
+        <div
+          class="row align-items-center justify-content-md-between justify-content-center"
+        >
+          <div
+            class="d-flex align-items-center col-12 col-md-4 justify-content-center order-0"
+          >
+            <img
+              id="logo_footer"
+              src="./static/Images/logo-footer.svg"
+              alt="logo"
+              srcset=""
+            />
+            <div class="mx-3">
+              <a class="footer-link" href="#">
+                <p>عن المحقق الذكي</p>
+              </a>
+              <a class="footer-link" href="#">
+                <p class="my-2">سياسة الخصوصية</p>
+              </a>
+              <a class="footer-link" href="#">
+                <p>الشروط والأحكام</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 my-4 my-md-0 order-2 order-md-1">
+            <div class="social-icons d-flex justify-content-center">
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/youtube.svg" alt="youtube" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/twitter.svg" alt="twitter" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/instagram.svg" alt="instagram" srcset="" />
+                </a>
+              </span>
+              <span class="mx-1">
+                <a href="#">
+                  <img src="./static/Images/facebook.svg" alt="facebook" srcset="" />
+                </a>
+              </span>
+            </div>
+            <p
+              class="text-center"
+              style="font-size: 13px; color: #28494a; margin-top: 10px"
+            >
+              جميع الحقوق محفوظة © 2022
+            </p>
+          </div>
+          <div
+            class="align-items-center col-12 col-md-4 d-flex justify-content-center logos my-3 my-md-0 order-1 order-md-2"
+          >
+            <img
+              style="width: 7rem"
+              src="./static/Images/roaia-logo.svg"
+              alt="roaia logo"
+            />
+            <img
+              class="mx-2"
+              style="width: 6rem"
+              src="./static/Images/internal-logo.svg"
+              alt="roaia logo"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
